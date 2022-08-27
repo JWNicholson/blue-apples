@@ -1,12 +1,16 @@
-import axios from 'axios';
 import { useState } from 'react';
-import SearchComponent from './SearchComponent';
+import axios from 'axios';
+import MovieCard from '../MovieCard/MovieCard';
+import SearchComponent from '../SearchComponent';
+
+import './MovieList.css';
 
 const MovieList = () => {
   const [query, setQuery] = useState('');
   const [searchResults, setSearchResults] = useState('');
-  // console.log(query);
-  //console.log(searchResults);
+  // console.log(searchResults);
+
+  const results = searchResults.Search;
 
   const url = process.env.REACT_APP_BASEURL;
   const apiKey = process.env.REACT_APP_APIKEY;
@@ -16,15 +20,13 @@ const MovieList = () => {
   };
 
   const handleSearchButton = () => {
-    //console.log("Search Query: ",query)
-
     axios
       .get(url, {
         params: {
           apikey: apiKey,
           s: query,
-          type: 'movie'
-        }
+          type: 'movie',
+        },
       })
       .then((response) => {
         //check if response is valid. If not, show error
@@ -38,8 +40,7 @@ const MovieList = () => {
         alert(error);
       });
   };
-
-  const movie = searchResults;
+  console.log(results);
 
   return (
     <div>
@@ -47,6 +48,15 @@ const MovieList = () => {
         handleInputChange={handleInputChange}
         handleSearchButton={handleSearchButton}
       />
+
+{results && 
+  <section className='movielist-container'>
+  {results.map(result => (
+    <MovieCard key={result.imdbID} result={result} />
+  ))}
+</section>
+}
+    
     </div>
   );
 };

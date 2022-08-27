@@ -1,0 +1,21 @@
+.movie-card {
+  height: auto;
+  width: 360px;
+  border: 2px grey solid;
+  overflow: hidden;
+  margin: 20px;
+  padding: 18px;
+  background-color: aliceblue;
+  border-radius: 6px;
+  box-shadow: -2px 0px 14px -3px rgba(0, 0, 0, 0.53);
+  -webkit-box-shadow: -2px 0px 14px -3px rgba(0, 0, 0, 0.53);
+  -moz-box-shadow: -2px 0px 14px -3px rgba(0, 0, 0, 0.53);
+}
+
+.movie-card img {
+  height: auto;
+  width:auto;
+  border: 2px solid grey;
+  border-radius: 6px;
+  margin: 14px auto;
+}
