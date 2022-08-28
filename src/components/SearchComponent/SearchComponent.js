@@ -1,15 +1,17 @@
 import React from 'react';
+import './SearchComponent.css';
 
 const SearchComponent = (props) => {
   return (
-    <div>
+    <div className='searchbox-container'>
       <input
+        className='searchbox-container-input'
         type='text'
         placeholder='Search for title....'
         name='search'
         onChange={props.handleInputChange}
       />
-      <button onClick={props.handleSearchButton}>Search</button>
+      <button className='searchbox-button' onClick={props.handleSearchButton}>Search</button>
     </div>
   );
 };

@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import axios from 'axios';
 import MovieCard from '../MovieCard/MovieCard';
-import SearchComponent from '../SearchComponent';
+import SearchComponent from '../SearchComponent/SearchComponent';
 
 import './MovieList.css';
 
