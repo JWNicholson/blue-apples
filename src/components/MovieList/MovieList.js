@@ -8,11 +8,11 @@ import './MovieList.css';
 const MovieList = () => {
   const [query, setQuery] = useState('');
   const [searchResults, setSearchResults] = useState('');
+  const [savedList, setSavedList] = useState([]);
 
+ 
   const results = searchResults.Search;
-
-  console.log(results);
-
+console.log({results})
   const handleInputChange = (e) => {
     setQuery(e.target.value);
   };
@@ -49,7 +49,7 @@ const MovieList = () => {
       {results && (
         <section className='movielist-container'>
           {results.map((result) => (
-            <MovieCard key={result.imdbID} result={result} />
+            <MovieCard key={result.imdbID} result={result}  />
           ))}
         </section>
       )}
