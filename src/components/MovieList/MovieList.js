@@ -8,12 +8,10 @@ import './MovieList.css';
 const MovieList = () => {
   const [query, setQuery] = useState('');
   const [searchResults, setSearchResults] = useState('');
-  // console.log(searchResults);
 
   const results = searchResults.Search;
 
-  const url = process.env.REACT_APP_BASEURL;
-  const apiKey = process.env.REACT_APP_APIKEY;
+  console.log(results);
 
   const handleInputChange = (e) => {
     setQuery(e.target.value);
@@ -21,12 +19,12 @@ const MovieList = () => {
 
   const handleSearchButton = () => {
     axios
-      .get(url, {
+      .get(process.env.REACT_APP_BASEURL, {
         params: {
-          apikey: apiKey,
+          apikey: process.env.REACT_APP_APIKEY,
           s: query,
-          type: 'movie',
-        },
+          type: 'movie'
+        }
       })
       .then((response) => {
         //check if response is valid. If not, show error
@@ -40,23 +38,21 @@ const MovieList = () => {
         alert(error);
       });
   };
-  console.log(results);
 
   return (
-    <div>
+    <div className='main-container'>
       <SearchComponent
         handleInputChange={handleInputChange}
         handleSearchButton={handleSearchButton}
       />
 
-{results && 
-  <section className='movielist-container'>
-  {results.map(result => (
-    <MovieCard key={result.imdbID} result={result} />
-  ))}
-</section>
-}
-    
+      {results && (
+        <section className='movielist-container'>
+          {results.map((result) => (
+            <MovieCard key={result.imdbID} result={result} />
+          ))}
+        </section>
+      )}
     </div>
   );
 };

@@ -1,3 +1,7 @@
+.main-container {
+  margin-top: 32px;
+}
+
 .movielist-container {
   display: flex;
   justify-content: space-evenly;

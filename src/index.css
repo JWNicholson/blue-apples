@@ -3,16 +3,16 @@
   padding: 0;
   box-sizing: border-box;
 }
-ul{
+ul {
   list-style: none;
 }
 
-a {text-decoration: none;}
+a {
+  text-decoration: none;
+}
 
 body {
   margin: 0;
   font-family: 'Roboto', 'Oxygen';
-
+  background-color: rgb(166, 222, 255);
 }
-
-
